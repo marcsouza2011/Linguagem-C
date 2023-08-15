@@ -1,0 +1,84 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNR4er9kzspiGSZVdkhdyj9",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/marcsouza2011/Linguagem-C/blob/master/Atividade%20Unidade%203%20-%20Inova%C3%A7%C3%B5es%20Tecnologicas%20-%20USF%202023\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tQtj4R4wfbyA",
+        "outputId": "ecc32b9f-03d4-48a2-a888-e185a42586b7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A Categoria Atribuída é:  ['Romance']\n"
+          ]
+        }
+      ],
+      "source": [
+        "# ATIVIDADE UNIDADE 3 - INOVAÇÕES TECNOLÓGICAS EM DESENVOLVIMENTO DE SISTEMAS\n",
+        "\n",
+        "# A locadora possui um conjunto de filmes para classificar, e eles escolheram as seguintes características para coletar dados inicialmente:\n",
+        "\n",
+        "\n",
+        "from sklearn.tree import DecisionTreeClassifier\n",
+        "\n",
+        "# Dados de treinamento\n",
+        "treino = [\n",
+        "  [15,  5, 2],   #Filme 1: 15 cenas de ação, 5 cenas românticas, 2 cenas engraçadas - Categoria: Ação\n",
+        "  [ 3, 10, 8],   #Filme 2: 3 cenas de ação, 10 cenas românticas, 8 cenas engraçadas - Categoria: Romance\n",
+        "  [ 2,  2,20]   #Filme 3: 2 cenas de ação, 2 cenas românticas, 20 cenas engraçadas - Categoria: Comédia\n",
+        "]\n",
+        "\n",
+        "resposta = ['Ação', 'Romance', 'Comédia']\n",
+        "\n",
+        "# Criação do modelo de Árvore de Decisão\n",
+        "modelo = DecisionTreeClassifier()\n",
+        "\n",
+        "# Treinamento do modelo\n",
+        "modelo.fit(treino, resposta)\n",
+        "\n",
+        "# Dados de teste\n",
+        "teste = [\n",
+        "    [10, 8, 4] # Filme Teste: 10 Cenas de ação, 8 cenas românticas e 4 cenas engraçadas - Categoria Romance\n",
+        "]\n",
+        "\n",
+        "# Classificação dos filmes de teste\n",
+        "classificacao = modelo.predict(teste)\n",
+        "\n",
+        "# Exibição da categoria atribuída ao filme teste\n",
+        "print ('A Categoria Atribuída é: ', classificacao)\n"
+      ]
+    }
+  ]
+}
